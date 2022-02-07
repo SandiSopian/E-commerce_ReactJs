@@ -3,12 +3,15 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./index.css";
 import App from "./App";
+import { ProductProvider } from "./Context";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
-  <Router>
-    <App />
-  </Router>,
+  <ProductProvider>
+    <Router>
+      <App />
+    </Router>
+  </ProductProvider>, //agar semua yang ada di ProductProvider terkirim ke semua Router
   document.getElementById("root")
 );
 
