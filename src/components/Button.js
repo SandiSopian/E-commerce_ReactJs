@@ -7,6 +7,6 @@ export const ButtonContainer = styled.button`
   color: var(--mainWhite);
   &:hover {
     background: var(--lightBlue);
-    color: car(--mainBlue);
+    color: var(--mainBlue);
   }
 `;

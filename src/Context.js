@@ -8,8 +8,11 @@ class ProductProvider extends Component {
     products: [],
     detailProduct: detailProduct,
     cart: [],
-    modalOpen: true,
-    modelProduct: detailProduct,
+    modalOpen: false,
+    modalProduct: detailProduct,
+    cartSubtotal: 0,
+    cartTax: 0,
+    cartTotal: 0,
   };
 
   componentDidMount() {
@@ -62,9 +65,36 @@ class ProductProvider extends Component {
       return { modalOpen: false };
     });
   };
-
+  increase = (id) => {
+    console.log("this increase");
+  };
+  decrease = (id) => {
+    console.log("decrase qty");
+  };
+  removeItem = (id) => {
+    console.log("item removed");
+  };
+  clearCart = () => {
+    console.log("cart cleared");
+  };
   render() {
-    return <ProductContext.Provider value={{ ...this.state, handleDetail: this.handleDetail, addToCart: this.addToCart, openModal: this.openModal, closeModal: this.closeModal }}>{this.props.children}</ProductContext.Provider>;
+    return (
+      <ProductContext.Provider
+        value={{
+          ...this.state,
+          handleDetail: this.handleDetail,
+          addToCart: this.addToCart,
+          openModal: this.openModal,
+          closeModal: this.closeModal,
+          increase: this.increase,
+          decrease: this.decrease,
+          removeItem: this.removeItem,
+          clearCart: this.clearCart,
+        }}
+      >
+        {this.props.children}
+      </ProductContext.Provider>
+    );
   } // ... berguna untuk mengambil semua state
 }
 
