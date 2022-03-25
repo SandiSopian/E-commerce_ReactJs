@@ -11,15 +11,16 @@ export default class ProductList extends Component {
         <div className="py-5">
           <div className="container">
             <Title name="our" title="products" />
-            <div className="row"></div>
-            <ProductConsumer>
-              {(value) => {
-                return value.products.map((product) => {
-                  // map berguna untuk pengulangan data tapi memerlukan id agar tidak error
-                  return <Product key={product.id} product={product} />;
-                });
-              }}
-            </ProductConsumer>
+            <div className="row">
+              <ProductConsumer>
+                {(value) => {
+                  return value.products.map((product) => {
+                    // map berguna untuk pengulangan data tapi memerlukan id agar tidak error
+                    return <Product key={product.id} product={product} />;
+                  });
+                }}
+              </ProductConsumer>
+            </div>
           </div>
         </div>
       </React.Fragment>
